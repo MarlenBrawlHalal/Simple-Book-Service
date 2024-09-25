@@ -1,4 +1,4 @@
-This is a Spring Boot contact service for managing reference data.
+This is a Spring Boot Book Service for managing reference data.
 
 ## Prerequisites
 
