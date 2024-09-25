@@ -1,4 +1,8 @@
-This is a Spring Boot Book Service for managing reference data.
+This is a Spring Boot Book Service API for managing reference data.
+
+## Documentation of API
+
+You can visit the "http://localhost:8080/swagger-ui/index.html" to see the API documentation.
 
 ## Prerequisites
 
