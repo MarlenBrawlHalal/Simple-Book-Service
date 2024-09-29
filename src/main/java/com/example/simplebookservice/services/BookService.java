@@ -4,8 +4,6 @@ import com.example.simplebookservice.handler.NotFoundException;
 import com.example.simplebookservice.models.BookModel;
 import com.example.simplebookservice.repositories.BookRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,14 +14,13 @@ public class BookService {
   
   private final BookRepository bookRepository;
   
-  public ResponseEntity<List<BookModel>> getAllBooks() {
-    return new ResponseEntity<>(bookRepository.findAll(), HttpStatus.OK);
+  public List<BookModel> getAllBooks() {
+    return bookRepository.findAll();
   }
 
-  public ResponseEntity<BookModel> getBook(int id) {
-    BookModel book = bookRepository.findById(id)
+  public BookModel getBook(int id) {
+    return bookRepository.findById(id)
         .orElseThrow(() -> new NotFoundException(String.format("Book with id: %d not found", id)));
-    return new ResponseEntity<>(book, HttpStatus.OK);
   }
 
   public void createBook(BookModel book) {

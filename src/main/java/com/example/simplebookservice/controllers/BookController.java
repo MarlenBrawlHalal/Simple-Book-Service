@@ -4,6 +4,8 @@ import com.example.simplebookservice.models.BookModel;
 import com.example.simplebookservice.services.BookService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,13 +21,13 @@ public class BookController {
   @Tag(name = "Get", description = "Get methods of Book service API")
   @GetMapping
   public ResponseEntity<List<BookModel>> getAllBooks() {
-    return bookService.getAllBooks();
+    return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
   }
 
   @Tag(name = "Get", description = "Get methods of Book service API")
   @GetMapping("/{id}")
   public ResponseEntity<BookModel> getBook(@PathVariable int id) {
-    return bookService.getBook(id);
+    return new ResponseEntity<>(bookService.getBook(id), HttpStatus.OK);
   }
 
   @Tag(name = "Post", description = "Post methods of Book service API")
